@@ -1,0 +1,36 @@
+.tic-tac-toe {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: Arial, sans-serif;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  gap: 5px;
+}
+
+.square {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+
+.square.X {
+  color: #2196f3;
+}
+
+.square.O {
+  color: #f44336;
+}
+
+.status {
+  margin-bottom: 10px;
+  font-size: 20px;
+}

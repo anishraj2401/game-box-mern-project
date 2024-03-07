@@ -1,0 +1,75 @@
+//Rest CLient request for user details from LOGIN 
+
+get http://localhost:4000/user-api/user
+
+###
+get http://localhost:4000/user-api/user/test1
+
+###
+post http://localhost:4000/user-api/user
+Content-Type: application/json
+
+{
+    "username": "anish",
+    "email":"anish@mail.com",
+    "password":"anish" 
+}
+
+###
+post http://localhost:4000/user-api/login
+Content-Type: application/json
+
+{
+    "email":"manish@mail.com",
+    "password":"anish" 
+}
+
+###
+put http://localhost:4000/user-api/user
+Content-Type: application/json
+
+{
+    "username": "anish",
+    "email":"manish@mail.com",
+    "password":"anish" 
+}
+
+###
+delete http://localhost:4000/user-api/user/sds
+
+
+//Rest CLient request for payment details from WALLET 
+
+###
+get http://localhost:4000/payment-api/wallet-data
+
+###
+get http://localhost:4000/payment-api/wallet-data/test2@mail.com
+
+###
+post http://localhost:4000/payment-api/wallet-data
+Content-Type: application/json
+
+{
+    "username":"test2",
+    "email":"test2@mail.com",
+    "amount":2000,
+    "currency":"USD",
+    "cardNumber":"56579745675657974567",
+    "expirationDate":"21/12",
+    "cvv":211
+}
+
+###
+put http://localhost:4000/payment-api/wallet-form
+Content-Type: application/json
+
+{
+    "username":"test2",
+    "email":"test2@mail.com",
+    "amount":2000,
+    "currency":"USD",
+    "cardNumber":"56579745675657974567",
+    "expirationDate":"21/12",
+    "cvv":211
+}

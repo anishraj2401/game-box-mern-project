@@ -1,0 +1,82 @@
+.top-up-form-container {
+  align-items: start;
+  width: 500px;
+  padding: 40px;
+}
+
+.payment-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-top: 5px;
+}
+
+.wallet-card {
+  width: 500px;
+  margin: 20px auto;
+  padding: 13px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  color: #ffffff;
+  text-align: center;
+  transition: transform 0.3s ease-in-out;
+  background-color: #2196f3;
+}
+
+.wallet-card:hover {
+  transform: scale(1.05);
+}
+
+.cardheader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.card-logo {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+
+.card-title {
+  text-align: center;
+  margin-top: 10px;
+}
+.card-subtitle {
+  margin: 0;
+  font-size: 14px;
+}
+
+.cardbody {
+  padding: 20px;
+  text-align: left;
+}
+
+.card-details {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-number {
+  text-align: left;
+  font-size: 18px;
+  margin-bottom: 0px;
+}
