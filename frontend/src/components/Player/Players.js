@@ -45,7 +45,7 @@ export default function Players() {
             <div className='playerContainer '>
                 <div className="imgPlayer d-flex justify-content-between">
                     <img src={img1} alt="Player Avatar" className="playerImg" />
-                    <h6 className="card-title display-6 my-5"><b>Character ID : {currentUser._id}</b></h6>
+                    <h6 className="card-title display-6 my-5"><b>Character ID : {currentUser.id}</b></h6>
                 </div>
                 <div className="playerDetail ">
                     <span className='d-flex justify-content-between my-5'>

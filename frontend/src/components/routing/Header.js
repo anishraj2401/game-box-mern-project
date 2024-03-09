@@ -42,7 +42,7 @@ export default function Header() {
                         </li>
                         {loginStatus === false ? (
                             <li className="nav-item">
-                                <NavLink className="nav-link" to="/register" activeClassName="active">
+                                <NavLink className="nav-link" to="/register" >
                                     <button className='btn btn-primary' type="submit">Sign Up</button>
                                 </NavLink>
                             </li>
@@ -51,12 +51,12 @@ export default function Header() {
                                 <NavLink className="nav-link" to="/players">Player</NavLink>
                             </li>
 
-                            <li class="nav-item">
-                                <NavLink className="nav-link" to="/top-up" activeClassName="active">
+                            <li className="nav-item">
+                                <NavLink className="nav-link" to="/top-up" >
                                     <button className='btn btn-primary' type="submit">Balance: {walletData.currency}{walletData.amount}</button>
                                 </NavLink>
                             </li>
-                            <li className="nav-item" onClick={userLogout} activeClassName="active">
+                            <li className="nav-item" onClick={userLogout} >
                                 <button className='btn btn-primary' type="submit">Logout</button>
                             </li></>)
                         }

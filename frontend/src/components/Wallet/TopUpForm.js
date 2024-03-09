@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { useForm } from "react-hook-form";
 import { walletContextObj } from '../../context/wallet/walletContext';
 import { userLoginContextObj } from '../../context/user/userLoginContext'
@@ -7,9 +7,10 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 export default function TopUpForm() {
-    const { register, handleSubmit } = useForm();
+    const { register, handleSubmit, formState: { errors } } = useForm();
     const { updateWalletData, walletData, setWalletData } = useContext(walletContextObj);
-    const [currentUser, , loginStatus, , error, ,] = useContext(userLoginContextObj);
+    const [currentUser, , loginStatus, , , ,] = useContext(userLoginContextObj);
+    const [error, setError] = useState('');
 
     async function onSubmit(formData) {
         try {
@@ -23,13 +24,9 @@ export default function TopUpForm() {
                         cardNumber: formData.cardNumber,
                         expirationDate: formData.expirationDate,
                         cvv: formData.cvv
-                    },
-                    {
-                        headers: {
-                            Authorization: `Bearer ${sessionStorage.getItem('token')}`
-                        }
-
-                    });
+                    }, {
+                    headers: { Authorization: `Bearer ${sessionStorage.getItem('token')}` }
+                });
                 if (postResponse.data.message === "Wallet balance updated") {
                     setWalletData(postResponse.data.data)
                     toast.success('Payment Successfull', {
@@ -54,18 +51,21 @@ export default function TopUpForm() {
                     })
                 }
             }
-        } catch (error) {
-            console.log('error psoting data', error);
+        } catch (err) {
+            console.log('error psoting data', err);
         }
     }
 
     return (
         <div className="top-up-form-container cardBox  d-flex justify-content-start">
             <form onSubmit={handleSubmit(onSubmit)} className="payment-form">
-                {error && <p className="errorMsgP text-warning">{error}</p>}
+                {error && <p className="errorMsgP text-warning">*{error}</p>}
                 <div className="form-group">
                     <label>Name</label>
-                    <input type="text" name="username" placeholder='Enter your username' required {...register('username')} />
+                    <input type="text" name="username" placeholder="Enter your username" {...register('username', {
+                        required: '*username is required', minLength: { value: 3, message: 'Username must be at least 3 characters long' }
+                    })} />
+                    {errors.username && <p className="userErr  text-warning m-0 p-0">{errors.username.message}</p>}
                 </div>
                 <div className="form-group">
                     <label>Email</label>
@@ -73,7 +73,11 @@ export default function TopUpForm() {
                 </div>
                 <div className="form-group">
                     <label>Amount</label>
-                    <input type="number" name="amount" placeholder='Enter the amount' required {...register('amount')} />
+                    <input type="number" name="amount" placeholder="Enter the amount" {...register('amount', {
+                        required: '*amount is necessary', minLength: { value: 1, message: 'amount should contain 1 or more digits ' }
+                    })} />
+                    {errors.amount && <p className="userErr  text-warning m-0 p-0">{errors.amount.message}</p>}
+
                 </div>
                 <div className="form-group">
                     <label>Currency</label>
@@ -84,18 +88,31 @@ export default function TopUpForm() {
                         <option value="€">EUR (€)</option>
                         <option value="£">GBP (£)</option>
                     </select>
+                    {errors.currency && <p className="userErr  text-warning m-0 p-0">{errors.currency.message}</p>}
                 </div>
                 <div className="form-group">
                     <label>Card Number</label>
-                    <input type="text" name="cardNumber" maxLength="16" required {...register('cardNumber')} />
+                    <input type="text" name="cardNumber" placeholder="Enter your card number.." {...register('cardNumber', {
+                        required: '*cardNumber is required', minLength: { value: 16, message: 'card Number must be at least 16 characters long' }
+                    })} />
+                    {errors.cardNumber && <p className="userErr  text-warning m-0 p-0">{errors.cardNumber.message}</p>}
+
                 </div>
                 <div className="form-group">
                     <label>Expiration Date</label>
-                    <input type="text" name="expirationDate" required {...register('expirationDate')} />
+                    <input type="text" name="expirationDate" placeholder="Enter expiration date" {...register('expirationDate', {
+                        required: '*expirationDate is required'
+                    })} />
+                    {errors.expirationDate && <p className="userErr  text-warning m-0 p-0">{errors.expirationDate.message}</p>}
+
                 </div>
                 <div className="form-group">
                     <label>CVV</label>
-                    <input type="text" name="cvv" required {...register('cvv')} />
+                    <input type="text" name="cvv" placeholder="Enter cvv" {...register('cvv', {
+                        required: '*cvv is required', minLength: { value: 3, message: 'cvv must contain 3 digit' }
+                    })} />
+                    {errors.cvv && <p className="userErr  text-warning m-0 p-0">{errors.cvv.message}</p>}
+
                 </div>
                 <button type="submit">Top Up</button>
             </form>

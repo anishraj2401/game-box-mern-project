@@ -21,6 +21,7 @@ export default function UserLoginStore({ children }) {
                 setCurrentUser(updatedUserData);
                 setLoginStatus(true);
             } else {
+                setError(res.data.message);
                 return res.data.message
             }
             return res.data;

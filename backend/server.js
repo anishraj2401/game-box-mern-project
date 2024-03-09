@@ -1,21 +1,20 @@
 //create express app
 const exp = require('express')
 const app = exp();
-
-const cors=require("cors")
+const cors = require("cors")
+//connect to react application
+const path = require('path')
 
 //configure environment variables
 require('dotenv').config()
 
-//connect to react application
-const path = require('path')
 //join with react
 app.use(exp.static(path.join(__dirname, "../frontend/build")));
 
 //add body parsing middleware
 app.use(exp.json())
 
-app.use(cors({origin:"http://localhost:3000"}))
+app.use(cors({ origin: "http://localhost:3000" }))
 
 //import api
 const userApp = require('./APIs/user-api');
@@ -30,13 +29,13 @@ app.use((req, res, next) => {
     res.sendFile((path.join(__dirname, '../frontend/build/index.html')))
 })
 
-// app.get('*', (req, res) => {
-//     res.sendFile(path.join(__dirname, 'build', 'index.html'));
-// });
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
 
 //error handler
 app.use((err, req, res, next) => {
-    res.send({ message: 'error from handler occured', payload: err.payload })
+    res.send({ message: 'error from middleware handler occured', payload: err.payload })
 })
 
 

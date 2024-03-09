@@ -15,22 +15,22 @@ export default function Games() {
 
     const cardList = showAllCards ?
         [<>
-            <GameCard image={require("../../image/card01.jpg")} title={"SNAP"} price={"Rs. 899"} />
-            <GameCard image={require("../../image/card02.jpg")} title={"Clash Royale"} price={"Rs. 799"} />
-            <GameCard image={require("../../image/card03.jpg")} title={"Card Game"} price={"Rs. 299"} />
-            <GameCard image={require("../../image/card04.jpg")} title={"Heart Stone"} price={"Rs. 999"} />
-            <GameCard image={require("../../image/card05.jpg")} title={"Solitaire"} price={"Rs. 199"} />
-            <GameCard image={require("../../image/card06.jpg")} title={"ARCHADNIUM"} price={"Rs. 899"} />
-            <GameCard image={require("../../image/card07.jpg")} title={"Street FIghter Duel"} price={"Rs. 599"} />
-            <GameCard image={require("../../image/card08.jpg")} title={"Plant vs Zombies"} price={"Rs. 999"} />
-            <GameCard image={require("../../image/card08.jpg")} title={"Plant vs Zombies"} price={"Rs. 199"} />
+            <GameCard key='1' image={require("../../image/card01.jpg")} title={"SNAP"} price={"Rs. 899"} />
+            <GameCard key='2' image={require("../../image/card02.jpg")} title={"Clash Royale"} price={"Rs. 799"} />
+            <GameCard key='3' image={require("../../image/card03.jpg")} title={"Card Game"} price={"Rs. 299"} />
+            <GameCard key='4' image={require("../../image/card04.jpg")} title={"Heart Stone"} price={"Rs. 999"} />
+            <GameCard key='5' image={require("../../image/card05.jpg")} title={"Solitaire"} price={"Rs. 199"} />
+            <GameCard key='6' image={require("../../image/card06.jpg")} title={"ARCHADNIUM"} price={"Rs. 899"} />
+            <GameCard key='7' image={require("../../image/card07.jpg")} title={"Street FIghter Duel"} price={"Rs. 599"} />
+            <GameCard key='8' image={require("../../image/card08.jpg")} title={"Plant vs Zombies"} price={"Rs. 999"} />
+            <GameCard key='9' image={require("../../image/card08.jpg")} title={"Plant vs Zombies"} price={"Rs. 199"} />
         </>] : [<>
-            <GameCard image={require("../../image/card01.jpg")} title={"SNAP"} price={"Rs. 899"} />
-            <GameCard image={require("../../image/card02.jpg")} title={"Clash Royale"} price={"Rs. 799"} />
-            <GameCard image={require("../../image/card03.jpg")} title={"Card Game"} price={"Rs. 299"} />
-            <GameCard image={require("../../image/card04.jpg")} title={"Heart Stone"} price={"Rs. 999"} />
-            <GameCard image={require("../../image/card05.jpg")} title={"Solitaire"} price={"Rs. 199"} />
-            <GameCard image={require("../../image/card06.jpg")} title={"ARCHADNIUM"} price={"Rs. 899"} />
+            <GameCard key='1' image={require("../../image/card01.jpg")} title={"SNAP"} price={"Rs. 899"} />
+            <GameCard key='2' image={require("../../image/card02.jpg")} title={"Clash Royale"} price={"Rs. 799"} />
+            <GameCard key='3' image={require("../../image/card03.jpg")} title={"Card Game"} price={"Rs. 299"} />
+            <GameCard key='4' image={require("../../image/card04.jpg")} title={"Heart Stone"} price={"Rs. 999"} />
+            <GameCard key='5' image={require("../../image/card05.jpg")} title={"Solitaire"} price={"Rs. 199"} />
+            <GameCard key='6' image={require("../../image/card06.jpg")} title={"ARCHADNIUM"} price={"Rs. 899"} />
         </>
         ]
 

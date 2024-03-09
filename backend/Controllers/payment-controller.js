@@ -3,36 +3,49 @@ const { Wallet } = require("../db");
 const getWalletData = async (req, res) => {
     const walletData = await Wallet.find();
     res.status(200).json({ message: 'Wallet data retrieved successfully', data: walletData });
-    // res.status(200).send({ message: "Wallet List", payload: walletData });
 };
+//working code
+// const getWalletDataByName = async (req, res) => {
+//     // const walletData = await Wallet.findOne({ email: req.params.email });
+//     // if (walletData) {
+//     //     res.json({ data: walletData });
+//     // } else {
+//     //     res.status(404).json({ message: 'Wallet data not found for the given name' });
+//     // }
+
+//     const walletData = await Wallet.findOne(req.params);
+//     console.log('get data by wallet', walletData);
+//     res.status(200).json({ message: "wallet data found", data: walletData });
+
+// };
 
 const getWalletDataByName = async (req, res) => {
-    const walletData = await Wallet.findOne({ email: req.params.email });
-    if (walletData) {
-        res.json({ data: walletData });
-    } else {
-        res.status(404).json({ message: 'Wallet data not found for the given name' });
+    try {
+        const walletData = await Wallet.findOne({ email: req.params.email });
+        // console.log('wallet data', walletData); // Log the retrieved data
+        if (walletData !== null) {
+            res.status(200).json({ message: 'Wallet data found', data: walletData });
+        } else {
+            res.json({ message: 'Wallet data not found for the given name' });
+        }
+    } catch (error) {
+        console.error('Error fetching wallet data:', error);
+        res.status(500).json({ message: 'Internal server error' });
     }
 };
 
 const postWalletData = async (req, res) => {
     const { username, email, amount, currency, cardNumber, expirationDate, cvv } = req.body;
-    // console.log("wallaet", req.body);
     try {
         let wallet = await Wallet.findOne({ email });
-        // console.log('wallet from db', wallet)
-
         if (wallet === null) {
             // If the wallet doesn't exist, create a new one 
             wallet = new Wallet(req.body);
-            // console.log("wal doc", wallet);
             await wallet.save();
         } else {
             // If the wallet exists, update the amount 
-            const updatedAmount = parseInt(wallet.amount) + parseInt(amount); // Parse amount as a number
-            // console.log("updated amnt", updatedAmount);
+            const updatedAmount = parseInt(wallet.amount) + parseInt(amount);
             wallet.amount = updatedAmount;
-            console.log('wal', wallet)
             await wallet.save();
         }
         res.status(201).json({ message: "Wallet balance updated", data: wallet }
@@ -47,7 +60,7 @@ const updateWalletData = async (req, res) => {
     const { username, email, amount, currency, cardNumber, expirationDate, cvv } = req.body;
     try {
         let wallet = await Wallet.findOne({ email });
-        console.log("wallet fro db", wallet);
+        console.log("wallet from db", wallet);
         if (wallet === null) {
             return res.status(404).json({ message: 'Wallet not found' });
         }

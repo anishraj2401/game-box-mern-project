@@ -14,7 +14,6 @@ export default function GameCard(props) {
     const { walletData, setWalletData, updateWalletData, lowBalance, setLowBalance } = useContext(walletContextObj);
     const [currentUser, setCurrentUser, loginStatus, setLoginStatus, error, onSubmit, token] = useContext(userLoginContextObj)
 
-
     let curPrice = getAmount(props.price);
     let walletBalance = walletData.amount;
 
@@ -35,7 +34,7 @@ export default function GameCard(props) {
         <div className="cardBox mb-4">
             <div className="card-heading items-center mb-2 ">
                 <img className='card-img-top p-3' src={props.image} alt="Trending Game" />
-                <span class="badge badge-primary overlay-badge">{props.price}</span>
+                <span className="badge badge-primary overlay-badge">{props.price}</span>
                 <p className="card-title m-3">Base Game</p>
                 <div className=" m-3 d-flex justify-content-between align-items-center">
                     <h5 className="card-title text-left">{props.title}</h5>
