@@ -38,8 +38,6 @@ app.use((err, req, res, next) => {
     res.send({ message: 'error from middleware handler occured', payload: err.payload })
 })
 
-
-
 //asign port number
 const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => console.log(`Web server listening on port ${PORT}`))

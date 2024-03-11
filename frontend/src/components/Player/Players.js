@@ -8,7 +8,7 @@ export default function Players() {
     const [isEditing, setEditing] = useState(false);
 
     const [editedUser, setEditedUser] = useState({
-        id: 0,
+        id: 'd987hasqw98987',
         username: '',
         email: '',
         gameName: 'ZORD',
@@ -51,7 +51,7 @@ export default function Players() {
                     <span className='d-flex justify-content-between my-5'>
                         <h1 className="card-title display-5">{currentUser.username} </h1>
                         <div className="badge">
-                            <h6><span className="badge badge-dark">Jungler 🎗️</span>  <span class="badge badge-dark">Support 🪢</span></h6>
+                            <h6><span className="badge badge-dark">Jungler 🎗️</span>  <span className="badge badge-dark">Support 🪢</span></h6>
                         </div>
                     </span>
                     {isEditing ? (
@@ -60,22 +60,22 @@ export default function Players() {
                                 <div className="form-group text-left text-dark">
                                     <label htmlFor="name" >Name:</label>
                                     <input type="text" className="form-control" name="username" value={editedUser.name} onChange={handleInputChange} />
-                                    <div class="row">
-                                        <div class="col">
+                                    <div className="row">
+                                        <div className="col">
                                             <label htmlFor="name">Email:</label>
                                             <input type="email" className="form-control" name="email" value={editedUser.email} onChange={handleInputChange} />
                                         </div>
-                                        <div class="col">
+                                        <div className="col">
                                             <label htmlFor="name">Character Name:</label>
                                             <input type="text" className="form-control" name="gameName" value={editedUser.gameName} onChange={handleInputChange} />
                                         </div>
                                     </div>
-                                    <div class="row">
-                                        <div class="col">
+                                    <div className="row">
+                                        <div className="col">
                                             <label htmlFor="name">Age:</label>
                                             <input type="number" className="form-control" name="age" value={editedUser.age} onChange={handleInputChange} />
                                         </div>
-                                        <div class="col">
+                                        <div className="col">
                                             <label htmlFor="name">Nationality:</label>
                                             <input type="text" className="form-control" name="nationality" value={editedUser.nationality} onChange={handleInputChange} />
                                         </div>

@@ -10,9 +10,8 @@ export default function VideoBanner() {
                 <div className=" bg-primary text-white rounded d-flex justify-content-center overflow-hidden mx-auto p-5" style={{ maxWidth: '100%' }}>
                     <div className="d-flex justify-content-center align-items-center" style={{ maxWidth: '100%', height: 'auto' }}>
                         <iframe
-                            width="1150"
+                            width="1050"
                             height="450"
-                            // maxWidth='100%'
                             src="https://youtube.com/embed/UH3h2hDe6zs?si=O0RZWIhusQv6Vu88"
                             title="YouTube Video"
                             frameBorder="0"

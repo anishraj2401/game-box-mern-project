@@ -12,7 +12,7 @@ mongoose
   })
   .catch((err) => console.log("Error in DB connect..", err));
 
-//created user schema
+// created user schema
 const userSchema = new mongoose.Schema({
   username: {
     type: String,
@@ -51,7 +51,7 @@ const walletSchema = new mongoose.Schema({
     type: String,
   },
   cardNumber: {
-    type: Number,
+    type: String,
     required: [true, "card number is required"],
     minlength: [16, "card Number must be at least 16 characters long"],
   },
@@ -67,7 +67,7 @@ const walletSchema = new mongoose.Schema({
   }
 });
 
-//create Model(class) for the userSchema
+// create Model(class) for the userSchema
 const User = mongoose.model("User", userSchema);
 const Wallet = mongoose.model("Wallet", walletSchema);
 

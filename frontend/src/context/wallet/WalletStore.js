@@ -7,7 +7,7 @@ export default function WalletStore({ children }) {
     const [wallet, setWallet] = useState(0);
     const [lowBalance, setLowBalance] = useState(false);
     const [currentWalletData, setCurrentWalletData] = useState(0);
-    const [walletData, setWalletData] = useState({ name: '', email: '', amount: '', currency: '', cardNumber: '', expirationDate: '', cvv: '' });
+    const [walletData, setWalletData] = useState({});
     const [currentUser, setCurrentUser, loginStatus, , , ,] = useContext(userLoginContextObj);
 
     async function updateWalletData() {
@@ -15,8 +15,8 @@ export default function WalletStore({ children }) {
             const getResponse = await axios.get(`http://localhost:4000/payment-api/wallet-data/${currentUser.email}`);
             // console.log("get response from mongoosoe", getResponse.data.data);
             if (getResponse.data.message === 'Wallet data not found for the given name') {
-                setWalletData('')
-                console.log('wallet data balance', walletData);
+                setWalletData({ name: '', email: '', amount: 0, currency: '', cardNumber: '**** **** **** 6070', expirationDate: '09/09', cvv: '999' })
+                // console.log('wallet data balance', walletData.amount);
             } else {
                 setCurrentUser(getResponse.data.data);
                 setWalletData(getResponse.data.data)

@@ -27,7 +27,7 @@ export default function App() {
       const userCred = JSON.parse(localStorage.getItem('userCred'));
 
       if (!authToken) {
-        console.log('token not found');
+        // console.log('token not found');
       }
       else {
         try {
