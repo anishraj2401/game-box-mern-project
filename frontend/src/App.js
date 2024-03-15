@@ -15,7 +15,7 @@ import Players from './components/Player/Players';
 import RootLogin from './components/Root Login/RootLogin';
 import Login from './components/Root Login/Login';
 import { ToastContainer } from 'react-toastify';
-
+import NotFound from './components/NotFound';
 
 export default function App() {
   const [currentUser, setCurrentUser, loginStatus, setLoginStatus, error, onSubmit, token] = useContext(userLoginContextObj);
@@ -111,6 +111,10 @@ export default function App() {
         {
           path: '/login',
           element: <Login />
+        },
+        {
+          path: '*',
+          element: <NotFound />
         },
       ]
     }

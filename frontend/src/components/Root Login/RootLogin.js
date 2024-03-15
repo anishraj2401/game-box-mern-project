@@ -13,8 +13,7 @@ export default function RootLogin(props) {
     const handleRegistrationSuccess = () => {
         setType("signIn")
     }
-    const containerClass =
-        "containerBox " + (type === "signUp" ? "right-panel-active" : "");
+    const containerClass = "containerBox " + (type === "signUp" ? "right-panel-active" : "");
     return (
         <div className="registerBody">
             <div className={containerClass} id="containerBox">
