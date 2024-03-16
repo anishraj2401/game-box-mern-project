@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 export default function NotFound() {
     let navigate = useNavigate();
     return (
-        <section class="page_404">
+        <section class="page_404 m-5">
             <div class="container">
                 <div class="row">
                     <div class="col-sm-12 ">

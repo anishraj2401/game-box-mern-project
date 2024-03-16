@@ -6,7 +6,7 @@ export default function Banner() {
     return (
         <div className="bannerHome d-flex justify-content-between align-items-center row ">
             <div className="leftBanner text-center d-flex flex-column justify-content-center align-items-center my-5 col-md-6">
-                <h1 className=''>Welcome to Our Game Portal</h1>
+                <h1 className='text-center'>Welcome to Our Game Portal</h1>
                 <p >
                     Dive into a World of Thrilling Adventures
                 </p>

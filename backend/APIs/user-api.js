@@ -18,18 +18,21 @@ const {
 
 const verifyToken = require("../middlewares/verifyToken");
 
-//user CRUD
-
-//read all users
+//to get the list of all users
 userApp.get("/user", expressAsyncHandler(getUsers));
-//read user by username
+
+//to get data of user by username
 userApp.get("/user/:username", expressAsyncHandler(getUserByUsername));
-//create user
+
+//create user based on post request
 userApp.post("/user", expressAsyncHandler(createUser));
+
 //user login
 userApp.post("/login", expressAsyncHandler(loginUser));
+
 //update user
 userApp.put("/user", expressAsyncHandler(updateUser));
+
 //delete user by username
 userApp.delete("/user/:username", expressAsyncHandler(removeUser));
 

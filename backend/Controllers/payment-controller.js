@@ -4,20 +4,6 @@ const getWalletData = async (req, res) => {
     const walletData = await Wallet.find();
     res.status(200).json({ message: 'Wallet data retrieved successfully', data: walletData });
 };
-//working code
-// const getWalletDataByName = async (req, res) => {
-//     // const walletData = await Wallet.findOne({ email: req.params.email });
-//     // if (walletData) {
-//     //     res.json({ data: walletData });
-//     // } else {
-//     //     res.status(404).json({ message: 'Wallet data not found for the given name' });
-//     // }
-
-//     const walletData = await Wallet.findOne(req.params);
-//     console.log('get data by wallet', walletData);
-//     res.status(200).json({ message: "wallet data found", data: walletData });
-
-// };
 
 const getWalletDataByName = async (req, res) => {
     try {
